@@ -37,9 +37,24 @@ class View:
 
         # --- Sezione 2: Filtraggio ---
         # TODO
+        row_filtri = ft.Row(
+            [self.dd_biblioteca, self.dd_genere],
+            alignment=ft.MainAxisAlignment.CENTER,
+            spacing=20
+        )
 
         # Sezione 3: Libri
         # TODO
+        col_libri = ft.Column(
+            [
+                self.btn_mostra_libri,
+                ft.Divider(),
+                self.list_view
+            ],
+            alignment=ft.MainAxisAlignment.START,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            spacing=10
+        )
 
         # --- Toggle Tema ---
         self.toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=self.cambia_tema)
@@ -54,10 +69,15 @@ class View:
 
             # Sezione 2: Filtraggio
             # TODO
+            row_filtri,
+            ft.Divider(),
 
             # Sezione 3: Libri
             # TODO
+            col_libri
+
         )
+
 
         self.page.scroll = "adaptive"
         self.page.update()
